@@ -1,12 +1,29 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+{% extends 'minimal.base.html.twig' %}
+
+{% block body %}
+<!-- Page Wrapper -->
+<div id="wrapper">
+    {% include 'sidebar.html' %}
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+            {% include 'topbar.html.twig' %}
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+                 {% block main %}{% endblock %}
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; EventCoin 2019</span>
+                </div>
+            </div>
+        </footer>
+        <!-- End of Footer -->
+
+</div>
+{% endblock %}

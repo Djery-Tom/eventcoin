@@ -1,0 +1,205 @@
+<header class="mdc-toolbar mdc-theme--text-primary-on-primary-dark mdc-theme--primary-dark-bg mdc-toolbar--portal-no-shrink">
+  <div class="mdc-toolbar__row">
+    <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
+      <img src="{{ base }}assets/images/portal-logo.png" alt="Portal" class="mdc-toolbar__logo">
+      <span class="mdc-toolbar__title">Portal</span>
+    </section>
+  </div>
+</header>
+<div class="mdc-list-group mdc-drawer__content portal-hide-scrollbars portal-navigation">
+  <nav class="mdc-list mdc-list--avatar-list portal-navigation-list">
+    <a class="mdc-list-item portal-navigation-list__item" href="#">
+      <span class="portal-navigation-list__text">
+        <i class="material-icons mdc-list-item__graphic portal-navigation-list__icon">home</i>
+        Dashboard
+      </span>
+      <i class="material-icons portal-navigation-list__icon-collapse">keyboard_arrow_down</i>
+    </a>
+    <nav class="mdc-list portal-navigation-list">
+      {% for item in [{title:"Analytics", href:"index.html", icon: "dashboard", badge: 4},
+        {title:"Ecommerce", href:"dashboard-commerce.html", icon: "shopping_cart"},
+        {title:"Cryptocurrency", href:"dashboard-crypto.html", icon: "euro_symbol"},
+        {title:"Project", href:"dashboard-project.html", icon: "event_note"}] %}
+        <a class="portal-navigation-list__item mdc-list-item {{ active_page == item.title ? 'mdc-list-item--activated' : ''  }}" href="{{item.href}}">
+          <span class="portal-navigation-list__text">
+            <i class="material-icons mdc-list-item__graphic portal-navigation-list__icon" aria-hidden="true">{{item.icon}}</i>
+            {{item.title}}
+          </span>
+          {% if item.badge is defined %}
+            <span class="portal-badge portal-badge--secondary">{{item.badge}}</span>
+          {% endif %}
+        </a>
+      {% endfor %}
+    </nav>
+  </nav>
+{#  <nav class="mdc-list portal-navigation-list">#}
+{#    <a class="portal-navigation-list__item mdc-list-item {{ active_page == item.title ? 'mdc-list-item--activated' : '' }}" href="theming.html">#}
+{#      <span class="portal-navigation-list__text">#}
+{#        <i class="material-icons mdc-list-item__graphic portal-navigation-list__icon" aria-hidden="true">palette</i>#}
+{#        Theming#}
+{#      </span>#}
+{#    </a>#}
+{#  </nav>#}
+  <h3 class="mdc-list-group__subheader portal-navigation__subheader ">APPS</h3>
+  <nav class="mdc-list mdc-list--avatar-list portal-navigation-list">
+    <a class="mdc-list-item portal-navigation-list__item" href="#">
+      <span class="portal-navigation-list__text">
+        <i class="material-icons mdc-list-item__graphic portal-navigation-list__icon">desktop_windows</i>
+        Apps
+      </span>
+      <i class="material-icons portal-navigation-list__icon-collapse">keyboard_arrow_down</i>
+    </a>
+    <nav class="mdc-list portal-navigation-list">
+      {% for item in [{title:"Email", href:"email.html", icon:"email"},
+        {title:"Todo", href:"todo.html", icon:"check_circle"},
+        {title:"Maps", href:"maps.html", icon:"pin_drop"},
+        {title:"Chat", href:"chat.html", icon:"chat"},
+        {title:"Contacts", href:"contacts.html", icon:"face"},
+        {title:"Notes", href:"notes.html", icon:"event_note"},
+        {title:"Calendar", href:"calendar.html", icon:"date_range"}] %}
+        <a class="portal-navigation-list__item mdc-list-item {{ active_page == item.title ? 'mdc-list-item--activated' : ''  }}" href="{{item.href}}">
+          <span class="portal-navigation-list__text">
+            <i class="material-icons mdc-list-item__graphic portal-navigation-list__icon" aria-hidden="true">{{item.icon}}</i>
+            {{item.title}}
+          </span>
+        </a>
+      {% endfor %}
+    </nav>
+  </nav>
+  <h3 class="mdc-list-group__subheader portal-navigation__subheader">USER INTERFACE</h3>
+  <nav class="mdc-list mdc-list--avatar-list portal-navigation-list">
+    {% for item in [{title:"Typography", href:"typography.html", icon: "text_format"},
+      {title:"Colors", href:"colors.html", icon: "palette"}] %}
+      <a class="portal-navigation-list__item mdc-list-item {{ active_page == item.title ? 'mdc-list-item--activated' : ''  }}" href="{{item.href}}">
+        <span class="portal-navigation-list__text">
+          <i class="material-icons mdc-list-item__graphic portal-navigation-list__icon" aria-hidden="true">{{item.icon}}</i>
+          {{item.title}}
+        </span>
+      </a>
+    {% endfor %}
+  </nav>
+  <h3 class="mdc-list-group__subheader portal-navigation__subheader">PAGES</h3>
+  <nav class="mdc-list mdc-list--avatar-list portal-navigation-list">
+    <a class="mdc-list-item portal-navigation-list__item" href="#">
+      <span class="portal-navigation-list__text">
+        <i class="material-icons mdc-list-item__graphic portal-navigation-list__icon">perm_identity</i>
+        Authentication
+      </span>
+      <i class="material-icons portal-navigation-list__icon-collapse">keyboard_arrow_down</i>
+    </a>
+    <nav class="mdc-list portal-navigation-list">
+      {% for item in [{title:"Login", href:"login.html"},
+        {title:"Register", href:"register.html"},
+        {title:"Forgot Password", href:"forgot-password.html"},
+        {title:"Lock", href:"lock.html"}] %}
+        <a class="portal-navigation-list__item mdc-list-item {{ active_page == item.title ? 'mdc-list-item--activated' : ''  }}" href="{{item.href}}">
+          <span class="portal-navigation-list__text">
+            {{item.title}}
+          </span>
+        </a>
+      {% endfor %}
+    </nav>
+    <a class="mdc-list-item portal-navigation-list__item" href="#">
+      <span class="portal-navigation-list__text">
+        <i class="material-icons mdc-list-item__graphic portal-navigation-list__icon">error</i>
+        Errors
+      </span>
+      <i class="material-icons portal-navigation-list__icon-collapse">keyboard_arrow_down</i>
+    </a>
+    <nav class="mdc-list portal-navigation-list">
+      {% for item in [{title:"404", href:"404.html"},
+        {title:"500", href:"500.html"}] %}
+        <a class="portal-navigation-list__item mdc-list-item {{ active_page == item.title ? 'mdc-list-item--activated' : ''  }}" href="{{item.href}}">
+          <span class="portal-navigation-list__text">
+            {{item.title}}
+          </span>
+        </a>
+      {% endfor %}
+    </nav>
+  </nav>
+  <h3 class="mdc-list-group__subheader portal-navigation__subheader">ELEMENTS</h3>
+  <nav class="mdc-list mdc-list--avatar-list portal-navigation-list">
+    <a class="mdc-list-item portal-navigation-list__item" href="#">
+      <span class="portal-navigation-list__text">
+        <i class="material-icons mdc-list-item__graphic portal-navigation-list__icon">extension</i>
+        Form Controls
+      </span>
+      <i class="material-icons portal-navigation-list__icon-collapse">keyboard_arrow_down</i>
+    </a>
+    <nav class="mdc-list portal-navigation-list">
+      {% for item in [{title:"Checkbox", href:"checkbox.html"},
+        {title:"Input", href:"input.html"},
+        {title:"Radio", href:"radio.html"},
+        {title:"Select", href:"select.html"},
+        {title:"Slider", href:"slider.html"}] %}
+        <a class="portal-navigation-list__item mdc-list-item {{ active_page == item.title ? 'mdc-list-item--activated' : ''  }}" href="{{item.href}}">
+          <span class="portal-navigation-list__text">
+            {{item.title}}
+          </span>
+        </a>
+      {% endfor %}
+    </nav>
+    <a class="mdc-list-item portal-navigation-list__item" href="#">
+      <span class="portal-navigation-list__text">
+        <i class="material-icons mdc-list-item__graphic portal-navigation-list__icon">view_module</i>
+        Layout
+      </span>
+      <i class="material-icons portal-navigation-list__icon-collapse">keyboard_arrow_down</i>
+    </a>
+    <nav class="mdc-list portal-navigation-list">
+      {% for item in [{title:"Cards", href:"cards.html"},
+        {title:"Tabs", href:"tabs.html"}] %}
+        <a class="portal-navigation-list__item mdc-list-item {{ active_page == item.title ? 'mdc-list-item--activated' : ''  }}" href="{{item.href}}">
+          <span class="portal-navigation-list__text">
+            {{item.title}}
+          </span>
+        </a>
+      {% endfor %}
+    </nav>
+    <a class="mdc-list-item portal-navigation-list__item" href="#">
+      <span class="portal-navigation-list__text">
+        <i class="material-icons mdc-list-item__graphic portal-navigation-list__icon">error</i>
+        Buttons & Indicators
+      </span>
+      <i class="material-icons portal-navigation-list__icon-collapse">keyboard_arrow_down</i>
+    </a>
+    <nav class="mdc-list portal-navigation-list">
+      {% for item in [{title:"Buttons", href:"buttons.html"},
+        {title:"Linear Progress", href:"progress.html"}] %}
+        <a class="portal-navigation-list__item mdc-list-item {{ active_page == item.title ? 'mdc-list-item--activated' : ''  }}" href="{{item.href}}">
+          <span class="portal-navigation-list__text">
+            {{item.title}}
+          </span>
+        </a>
+      {% endfor %}
+    </nav>
+    <a class="mdc-list-item portal-navigation-list__item" href="#">
+      <span class="portal-navigation-list__text">
+        <i class="material-icons mdc-list-item__graphic portal-navigation-list__icon">feedback</i>
+        Popups & Modals
+      </span>
+      <i class="material-icons portal-navigation-list__icon-collapse">keyboard_arrow_down</i>
+    </a>
+    <nav class="mdc-list portal-navigation-list">
+      {% for item in [{title:"Dialog", href:"dialog.html"},
+        {title:"Snackbar", href:"snackbar.html"}] %}
+        <a class="portal-navigation-list__item mdc-list-item {{ active_page == item.title ? 'mdc-list-item--activated' : ''  }}" href="{{item.href}}">
+          <span class="portal-navigation-list__text">
+            {{item.title}}
+          </span>
+        </a>
+      {% endfor %}
+    </nav>
+  </nav>
+</div>
+<footer class="mdc-toolbar mdc-theme--text-primary-on-primary-dark mdc-theme--primary-dark-bg mdc-toolbar--portal-no-shrink">
+  <div class="mdc-toolbar__row">
+    <section class="mdc-toolbar__section mdc-toolbar__section--align-end">
+      <a id="portal-sidemenu-close-icon" href="#" class="material-icons mdc-toolbar__menu-icon">
+        <span class="portal-navigation-list__text portal-sidenav-collapse-icon">
+          chevron_left
+        </span>
+      </a>
+    </section>
+  </div>
+</footer>

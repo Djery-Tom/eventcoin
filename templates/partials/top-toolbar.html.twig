@@ -1,0 +1,100 @@
+<header class="mdc-toolbar mdc-theme--text-primary-on-primary-light mdc-theme--primary-light-bg mdc-toolbar--portal-no-shrink portal-toolbar">
+  <div class="mdc-toolbar__row">
+    <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
+      <a id="portal-top-toolbar-burger-icon" href="#" class="portal-burger-menu-icon--{{layout}} material-icons mdc-toolbar__menu-icon">menu</a>
+      <span class="mdc-toolbar__title">Portal</span>
+    </section>
+    <section class="mdc-toolbar__section mdc-toolbar__section--align-end">
+
+      <div id="portal-layout-menu-button" class="material-icons mdc-toolbar__icon mdc-menu-anchor" aria-label="Notifications">
+        apps
+
+        <div class="mdc-menu" tabindex="-1" id="portal-layout-menu">
+          <div class="mdc-menu__items mdc-list" role="menu" aria-hidden="true">
+            {% if layout is not same as('classic') %}
+              <a href="{{ base }}" class="mdc-list-item" role="menuitem" tabindex="0">Classic</a>
+            {% endif %}
+            {% if layout is not same as('toolbar') %}
+              <a href="{{ path('index',{ theme: 'toolbar'})}}" class="mdc-list-item" role="menuitem" tabindex="0">Toolbar</a>
+            {% endif %}
+            {% if layout is not same as('compact') %}
+              <a href="{{ path('index',{theme: 'compact'})}}" class="mdc-list-item" role="menuitem" tabindex="0">Compact</a>
+            {% endif %}
+            {% if layout is not same as('boxed') %}
+              <a href="{{ path('index',{ theme: 'boxed'})}}" class="mdc-list-item" role="menuitem" tabindex="0">Boxed</a>
+            {% endif %}
+            {% if layout is not same as('tabbed') %}
+              <a href="{{ path('index',{'theme': 'tabbed'})}}" class="mdc-list-item" role="menuitem" tabindex="0">Tabbed</a>
+            {% endif %}
+            {% if layout is not same as('funky') %}
+              <a href="{{ path('index',{'theme': 'funky'})}}" class="mdc-list-item" role="menuitem" tabindex="0">Funky</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <div id="portal-theme-menu-button" class="material-icons mdc-toolbar__icon mdc-menu-anchor" aria-label="Change Colors">
+      invert_colors
+      <div class="mdc-menu" tabindex="-1" id="portal-theme-menu">
+        <ul class="mdc-menu__items mdc-list" role="menu" aria-hidden="true">
+          <li id="classic-light_blue-pink" class="mdc-list-item" role="menuitem" tabindex="0">
+            Classic - Light Blue / Pink
+          </li>
+          <li id="classic-green-deep_orange" class="mdc-list-item" role="menuitem" tabindex="0">
+            Classic - Green / Deep Orange
+          </li>
+          <li id="classic-indigo-orange" class="mdc-list-item" role="menuitem" tabindex="0">
+            Classic - Indigo / Orange
+          </li>
+          <li id="dark-light_blue-pink" class="mdc-list-item" role="menuitem" tabindex="0">
+            Dark - Light Blue / Pink
+          </li>
+          <li id="dark-green-deep_orange" class="mdc-list-item" role="menuitem" tabindex="0">
+            Dark - Green / Deep Orange
+          </li>
+          <li id="dark-indigo-orange" class="mdc-list-item" role="menuitem" tabindex="0">
+            Dark - Indigo / Orange
+          </li>
+          <li id="night-light_blue-pink" class="mdc-list-item" role="menuitem" tabindex="0">
+            Night - Light Blue / Pink
+          </li>
+          <li id="night-green-deep_orange" class="mdc-list-item" role="menuitem" tabindex="0">
+            Night - Green / Deep Orange
+          </li>
+          <li id="night-indigo-orange" class="mdc-list-item" role="menuitem" tabindex="0">
+            Night - Indigo / Orange
+          </li>
+        </ul>
+      </div>
+  </div>
+      <div id="rtl-switch"
+        class="mdc-toolbar__icon toggle material-icons"
+        role="button"
+        aria-label="Text Direction"
+        aria-pressed="false"
+        tabindex="0"
+        data-toggle-on='{"content": "format_textdirection_l_to_r", "label": "Left to Right"}'
+        data-toggle-off='{"content": "format_textdirection_r_to_l", "label": "Right to Left"}'>
+        format_textdirection_l_to_r
+      </div>
+      <div id="user-menu-button" class="material-icons mdc-toolbar__icon mdc-menu-anchor" >
+        invert_colors
+        <div class="mdc-menu" tabindex="-1" id="user-menu">
+          <ul class="mdc-menu__items mdc-list" role="menu" aria-hidden="true">
+            <li class="mdc-list-item" role="menuitem" tabindex="0">
+              Profil
+            </li>
+            <li  class="mdc-list-item" role="menuitem" tabindex="0">
+              <a href="{{ path('logout') }}"> Se deconnecter </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="portal-top-toolbar-notification-icon" class="mdc-toolbar__icon portal-toolbar__notification-icon" aria-label="Notifications">
+        <span class="material-icons">notifications</span>
+        <span class="portal-badge portal-badge--secondary portal-toolbar__badge">3</span>
+      </div>
+    </section>
+  </div>
+</header>

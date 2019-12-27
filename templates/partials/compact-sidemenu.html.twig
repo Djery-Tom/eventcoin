@@ -1,0 +1,87 @@
+<header class="mdc-toolbar mdc-theme--text-primary-on-primary-dark mdc-theme--primary-dark-bg mdc-toolbar--portal-no-shrink">
+  <div class="mdc-toolbar__row">
+    <section class="mdc-toolbar__section mdc-toolbar__section--align-center">
+      <img src="{{ base }}assets/images/portal-logo.png" alt="Portal" class="mdc-toolbar__logo">
+    </section>
+  </div>
+</header>
+<div class="mdc-list-group mdc-drawer__content portal-drawer-group portal-hide-scrollbars portal-navigation">
+  <nav class="mdc-list portal-navigation-list">
+    {% for item in [{title:"Dashboard", href:"#", icon:"dashboard", badge:4, children:[
+                      {title:"Analytics", href:"index.html"},
+                      {title:"Ecommerce", href:"dashboard-commerce.html"},
+                      {title:"Cryptocurrency", href:"dashboard-crypto.html"},
+                      {title:"Project", href:"dashboard-project.html"}
+                    ]},
+                    {title:"Apps", href:"#", icon:"desktop_windows", children:[
+                      {title:"Email", href:"email.html"},
+                      {title:"Todo", href:"todo.html"},
+                      {title:"Maps", href:"maps.html"},
+                      {title:"Chat", href:"chat.html"},
+                      {title:"Contacts", href:"contacts.html"},
+                      {title:"Notes", href:"notes.html"},
+                      {title:"Calendar", href:"calendar.html"}
+                    ]},
+                    {title:"UI", href:"#", icon:"format_paint", children:[
+                      {title:"Typography", href:"typography.html"},
+                      {title:"Colors", href:"colors.html"}
+                    ]},
+                    {title:"Pages", href:"#", icon:"content_paste", children:[
+                      {title:"404", href:"404.html"},
+                      {title:"500", href:"500.html"},
+                      {title:"Login", href:"login.html"},
+                      {title:"Register", href:"register.html"},
+                      {title:"Forgot Password", href:"forgot-password.html"},
+                      {title:"Lock", href:"lock.html"},
+                      {title:"Theming", href:"theming.html"}
+                    ]},
+                    {title:"Elements", href:"#", icon: "extension", children:[
+                      {title:"Buttons", href:"buttons.html"},
+                      {title:"Cards", href:"cards.html"},
+                      {title:"Checkbox", href:"checkbox.html"},
+                      {title:"Input", href:"input.html"},
+                      {title:"Linear Progress", href:"progress.html"},
+                      {title:"Dialog", href:"dialog.html"},
+                      {title:"Radio", href:"radio.html"},
+                      {title:"Select", href:"select.html"},
+                      {title:"Slider", href:"slider.html"},
+                      {title:"Snackbar", href:"snackbar.html"},
+                      {title:"Tabs", href:"tabs.html"}
+                    ]}] %}
+      <div class="mdc-menu-anchor">
+        <a href="{{item.href}}" class="mdc-button portal-menu-button {{ 'mdc-list-item--activated' if active_page == item.title }}">
+          <i class="material-icons portal-menu-button__icon" aria-hidden="true">{{item.icon}}</i>
+          {% if item.badge %}
+            <span class="portal-badge portal-badge--secondary portal-menu-button__badge">{{item.badge}}</span>
+          {% endif %}
+          {{item.title}}
+        </a>
+        {% if item.children %}
+        <div class="mdc-menu portal-dropdown-menu" tabindex="-1">
+          <ul class="mdc-menu__items mdc-list portal-hide-scrollbars" role="menu" aria-hidden="true">
+            {% for child in item.children %}
+            <li class="mdc-list-item {{ 'mdc-list-item--activated' if active_page == child.title }}" role="menuitem" tabindex="0">
+              <a href="{{child.href}}">
+                {{child.title}}
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </nav>
+</div>
+
+<footer class="mdc-toolbar mdc-theme--text-primary-on-primary-dark mdc-theme--primary-dark-bg mdc-toolbar--portal-no-shrink">
+    <div class="mdc-toolbar__row">
+      <section class="mdc-toolbar__section mdc-toolbar__section--align-end">
+        <a id="portal-sidemenu-close-icon" href="#" class="material-icons mdc-toolbar__menu-icon">
+          <span class="portal-navigation-list__text portal-sidenav-collapse-icon">
+            chevron_left
+          </span>
+        </a>
+      </section>
+    </div>
+  </footer>
